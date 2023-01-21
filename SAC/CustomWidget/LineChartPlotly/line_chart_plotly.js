@@ -69,41 +69,15 @@ var getScriptPromisify = (src) => {
       await getScriptPromisify(
         "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js");
 
-
-      d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function (err, rows) {
-
-        function unpack(rows, key) {
-          return rows.map(function (row) { return row[key]; });
+      var data = [
+        {
+          x: ['2013-10-04 22:23:00', '2013-11-04 22:23:00', '2013-12-04 22:23:00'],
+          y: [1, 3, 6],
+          type: 'scatter'
         }
+      ];
 
-
-        var trace1 = {
-          type: "scatter",
-          mode: "lines",
-          name: 'AAPL High',
-          x: unpack(rows, 'Date'),
-          y: unpack(rows, 'AAPL.High'),
-          line: { color: '#17BECF' }
-        }
-
-        var trace2 = {
-          type: "scatter",
-          mode: "lines",
-          name: 'AAPL Low',
-          x: unpack(rows, 'Date'),
-          y: unpack(rows, 'AAPL.Low'),
-          line: { color: '#7F7F7F' }
-        }
-
-        var data = [trace1, trace2];
-
-        var layout = {
-          title: 'Basic Time Series',
-        };
-
-        Plotly.newPlot(this._root, data, layout);
-      })
-
+      Plotly.newPlot('myDiv', data);
 
     }
   }
