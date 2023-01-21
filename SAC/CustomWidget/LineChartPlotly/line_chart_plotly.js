@@ -23,6 +23,11 @@ var getScriptPromisify = (src) => {
       this._shadowRoot.appendChild(prepared.content.cloneNode(true));
 
       this._root = this._shadowRoot.getElementById("root");
+      
+      this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
+			});
     }
 
 
