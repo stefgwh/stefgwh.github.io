@@ -77,7 +77,7 @@ var getScriptPromisify = (src) => {
         }
       ];
 
-      Plotly.newPlot('myDiv', data);
+      Plotly.newPlot(this._root, data);
 
     }
   }
