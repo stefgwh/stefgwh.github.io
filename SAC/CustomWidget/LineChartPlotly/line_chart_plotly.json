@@ -1,1 +1,154 @@
-
+{
+    "eula": "",
+    "vendor": "Grosswindhager",
+    "license": "",
+    "id": "com.sap.sac.sample.echarts.line_chart",
+    "version": "0.0.1",
+    "name": "Funnel Charrt",
+    "newInstancePrefix": "lineChart",
+    "description": "Test on Plotly Line Charts",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAA3NCSVQICAjb4U/gAAAAb1BMVEX///+ZmZl4dXdBPj9hYGGOjpE6ODo8OjwvLC0lISIpJSaMiooyLzH/cjMxLi9GREb/ZSk2MzV9fX1MSks4NjcrJyn/WR9ycnJRT1AtKiv/TRVdXF1ra2v7VCfJyMk+PD6tra+rqqtUUlU0MTNqaGpjxDg2AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAKhJREFUGNM9z9EagiAMBeDpEGkWNAGhqFTq/Z8xwK/+q7PtZgeg6npEMcBPJ0d1Kmg6ZnFGRZcLESnR7tpoouuVSCPPZYHWee+XxTsrvQeYQrwV97tL5uZigMeoqucTUSnWEVBX4fWaW2BYz1W3bXsLDPldcD8MoYZ3glmMjNbGLJk5igDgnLTGHazdAPo1Gdms2bZXhRmbMuNR5rNWJuX075sMYg57jV94IQ2Xqt1atQAAAABJRU5ErkJggg==",
+    "webcomponents": [
+        {
+            "kind": "main",
+            "tag": "stefgwh.github.io",
+            "url": "https://stefgwh.github.io/SAC/CustomWidget/LineChartPlotly/line_chart_plotly.js",
+            "integrity": "",
+            "ignoreIntegrity": true
+        }
+    ],
+    "properties": {
+        "width": {
+            "type": "integer",
+            "default": 600
+        },
+        "height": {
+            "type": "integer",
+            "default": 420
+        },
+    "dimensionFeed": {
+            "type": "string[]",
+            "default": []
+        },
+        "measureFeed": {
+            "type": "string[]",
+            "default": []
+        },
+    "caption": {
+        "type": "string",
+        "description": "The caption of the chart",
+        "default": ""
+    }
+  },
+  "dataBindings": {
+        "myDataSource": {
+            "feeds": [
+                {
+                    "id": "dimensions",
+                    "description": "Dimensions",
+                    "type": "dimension"
+                },
+                {
+                    "id": "measures",
+                    "description": "Measures",
+                    "type": "mainStructureMember"
+                }
+            ]
+        }
+    },
+  "methods": {
+    "getCaption": {
+      "returnType": "string",
+      "description": "The caption of the chart",
+      "parameters": [],
+      "body": "return this.caption;"
+    },
+    "setCaption": {
+      "description": "The caption of the chart",
+      "parameters": [
+        {
+          "name": "caption",
+          "type": "string",
+          "description": "The new caption"
+        }
+      ],
+      "body": "this.caption = caption;"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('myDataSource').openSelectModelDialog();"
+    },
+    "getDimensions": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('myDataSource').getDataSource().getDimensions();",
+      "returnType": "DimensionInfo[]"
+    },
+    "getMeasures": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('myDataSource').getDataSource().getMeasures();",
+      "returnType": "MeasureInfo[]"
+    },
+    "addDimension": {
+      "parameters": [
+        {
+          "name": "dimensionId",
+          "type": "string"
+        }
+      ]
+    },
+    "addMeasure": {
+      "parameters": [
+        {
+          "name": "measureId",
+          "type": "string"
+        }
+      ]
+    },
+    "removeDimension": {
+      "parameters": [
+        {
+          "name": "dimensionId",
+          "type": "string"
+        }
+      ]
+    },
+    "removeMeasure": {
+      "parameters": [
+        {
+          "name": "measureId",
+          "type": "string"
+        }
+      ]
+    },
+    "getDimensionsOnFeed": {
+      "parameters": [],
+      "returnType": "string[]"
+    },
+    "getMeasuresOnFeed": {
+      "parameters": [],
+      "returnType": "string[]"
+    },
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('myDataSource').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "setModel": {
+      "parameters": [
+        {
+          "name": "modelId",
+          "type": "string"
+        }
+      ],
+      "body": "this.dataBindings.getDataBinding('myDataSource').setModel(modelId);"
+    }
+  
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "called when the result set of the widget changes"
+    },
+    "onClick": {
+      "description": "called when the result set of the widget changes"
+    }
+  }}
