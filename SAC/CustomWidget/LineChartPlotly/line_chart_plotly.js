@@ -75,7 +75,7 @@ var getScriptPromisify = (src) => {
             );
 
             const myChart = echarts.init(this._root, "wight");
-            option = {
+            const option = {
                 legend: {
                     orient: 'vertical',
                     x: 'left',
