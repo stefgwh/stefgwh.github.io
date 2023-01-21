@@ -94,6 +94,5 @@ var getScriptPromisify = (src) => {
 
         }
     }
-
     customElements.define("com-sap-sample-template", LinePlotlyDemo);
 })();
