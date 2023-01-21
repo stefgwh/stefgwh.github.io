@@ -71,8 +71,45 @@ var getScriptPromisify = (src) => {
 
         async render() {
             await getScriptPromisify(
-                "https://cdn.plot.ly/plotly-latest.min.js"
+                "https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"
             );
+
+            const myChart = echarts.init(this._root, "wight");
+            option = {
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: ['A', 'B', 'C', 'D', 'E']
+                },
+                series: [
+                    {
+                        type: 'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        data: [
+                            { value: 335, name: 'A' },
+                            { value: 310, name: 'B' },
+                            { value: 234, name: 'C' },
+                            { value: 135, name: 'D' },
+                            { value: 1548, name: 'E' }
+                        ]
+                    }
+                ]
+            };
 
             /*
             if (!this._myDataSource || this._myDataSource.state !== "success") {
@@ -80,6 +117,7 @@ var getScriptPromisify = (src) => {
             }
             */
 
+            /*
             var data = [
                 {
                     x: ['2013-10-04 22:23:00', '2013-11-04 22:23:00', '2013-12-04 22:23:00'],
@@ -91,7 +129,8 @@ var getScriptPromisify = (src) => {
             const myChart = Plotly.newPlot(this._root, data, {
                 title: "Test"
               });
-
+              */
+            myChart.setOption(option);
         }
     }
     customElements.define("com-sap-sample-template", LinePlotlyDemo);
