@@ -5,7 +5,7 @@ var getScriptPromisify = (src) => {
 };
 
 (function () {
-  const prepared = document.createElement("template");
+  let prepared = document.createElement("template");
   prepared.innerHTML = `
           <style>
           </style>
@@ -39,7 +39,7 @@ var getScriptPromisify = (src) => {
 
     //When the custom widget is updated, the Custom Widget SDK framework executes this function first
     onCustomWidgetBeforeUpdate(oChangedProperties) {
-
+      this.redraw();
     }
 
     //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
@@ -65,9 +65,6 @@ var getScriptPromisify = (src) => {
     async redraw() {
       await getScriptPromisify(
         "https://cdn.plot.ly/plotly-2.17.1.min.js");
-
-      await getScriptPromisify(
-        "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js");
 
       var data = [
         {
