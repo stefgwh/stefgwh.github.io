@@ -9,7 +9,7 @@ var getScriptPromisify = (src) => {
     prepared.innerHTML = `
             <style>
             </style>
-            <div id="myDiv" style="width: 100%; height: 100%;">
+            <div id="root" style="width: 100%; height: 100%;">
             </div>
           `;
 
@@ -88,7 +88,7 @@ var getScriptPromisify = (src) => {
                 }
             ];
 
-            const myChart = Plotly.newPlot('myDiv', data, {
+            const myChart = Plotly.newPlot(this._root, data, {
                 title: "Test"
               });
 
