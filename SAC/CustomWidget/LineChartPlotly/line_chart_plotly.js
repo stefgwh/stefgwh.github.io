@@ -5,11 +5,11 @@ var getScriptPromisify = (src) => {
 };
 
 (function () {
-    let prepared = document.createElement("template");
+    const prepared = document.createElement("template");
     prepared.innerHTML = `
             <style>
             </style>
-            <div id="root" style="width: 100%; height: 100%;">
+            <div id="myDiv" style="width: 100%; height: 100%;">
             </div>
           `;
 
@@ -71,7 +71,7 @@ var getScriptPromisify = (src) => {
 
         async render() {
             await getScriptPromisify(
-                "https://cdn.plot.ly/plotly-2.17.1.min.js"
+                "https://cdn.plot.ly/plotly-latest.min.js"
             );
 
             /*
@@ -88,7 +88,7 @@ var getScriptPromisify = (src) => {
                 }
             ];
 
-            Plotly.newPlot(this._root, data, {
+            const myChart = Plotly.newPlot('myDiv', data, {
                 title: "Test"
               });
 
