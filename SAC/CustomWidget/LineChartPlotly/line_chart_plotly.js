@@ -125,7 +125,7 @@ var getScriptPromisify = (src) => {
             const trace1 = {
                 line: { shape: 'linear' },
                 mode: 'lines+markers',
-                name: ''linear'',
+                name: "linear",
                 type: 'scatter',
                 x: [1, 2, 3, 4, 5],
                 y: [1, 3, 2, 3, 1],
@@ -134,7 +134,7 @@ var getScriptPromisify = (src) => {
             const trace2 = {
                 line: { shape: 'spline' },
                 mode: 'lines+markers',
-                name: ''spline'',
+                name: "spline",
                 type: 'scatter',
                 x: [1, 2, 3, 4, 5],
                 y: [6, 8, 7, 8, 6],
@@ -144,7 +144,7 @@ var getScriptPromisify = (src) => {
             const trace3 = {
                 line: { shape: 'vhv' },
                 mode: 'lines+markers',
-                name: ''vhv'',
+                name: "vhv",
                 type: 'scatter',
                 x: [1, 2, 3, 4, 5],
                 y: [11, 13, 12, 13, 11],
@@ -153,7 +153,7 @@ var getScriptPromisify = (src) => {
             const trace4 = {
                 line: { shape: 'hvh' },
                 mode: 'lines+markers',
-                name: ''hvh'',
+                name: "hvh",
                 type: 'scatter',
                 x: [1, 2, 3, 4, 5],
                 y: [16, 18, 17, 18, 16],
@@ -162,7 +162,7 @@ var getScriptPromisify = (src) => {
             const trace5 = {
                 line: { shape: 'vh' },
                 mode: 'lines+markers',
-                name: ''vh'',
+                name: "vh",
                 type: 'scatter',
                 x: [1, 2, 3, 4, 5],
                 y: [21, 23, 22, 23, 21],
@@ -171,7 +171,7 @@ var getScriptPromisify = (src) => {
             const trace6 = {
                 line: { shape: 'hv' },
                 mode: 'lines+markers',
-                name: ''hv'',
+                name: "hv",
                 type: 'scatter',
                 x: [1, 2, 3, 4, 5],
                 y: [26, 28, 27, 28, 26],
