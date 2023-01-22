@@ -138,7 +138,7 @@ var getScriptPromisify = (src) => {
                 type: 'scatter',
                 x: [1, 2, 3, 4, 5],
                 y: [6, 8, 7, 8, 6],
-                text: ['tweak line smoothness<br>with 'smoothing' in line object'],
+                text: ['tweak line smoothness<br>with in line object'],
                 hoverinfo: 'text+name'
             };
             const trace3 = {
@@ -188,9 +188,8 @@ var getScriptPromisify = (src) => {
             Plotly.plot(this._root, {
                 data: data,
                 layout: layout
-            }
+            })
 
-            
         }
     }
     customElements.define("com-sap-sample-template", LinePlotlyDemo);
