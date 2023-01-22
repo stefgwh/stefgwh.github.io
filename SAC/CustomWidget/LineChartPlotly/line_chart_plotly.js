@@ -70,6 +70,13 @@ var getScriptPromisify = (src) => {
 
 
         async render() {
+
+            await getScriptPromisify(
+                "https://cdn.plot.ly/plotly-latest.min.js"
+            );
+            
+
+            /*
             await getScriptPromisify(
                 "https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"
             );
@@ -111,26 +118,79 @@ var getScriptPromisify = (src) => {
                 ]
             };
 
-            /*
-            if (!this._myDataSource || this._myDataSource.state !== "success") {
-                return;
-            }
+ 
+            myChart.setOption(option);
             */
 
-            /*
-            var data = [
-                {
-                    x: ['2013-10-04 22:23:00', '2013-11-04 22:23:00', '2013-12-04 22:23:00'],
-                    y: [1, 3, 6],
-                    type: 'scatter'
+            trace1 = {
+                line: { shape: 'linear' },
+                mode: 'lines+markers',
+                name: ''linear'',
+                type: 'scatter',
+                x: [1, 2, 3, 4, 5],
+                y: [1, 3, 2, 3, 1],
+                hoverinfo: 'name'
+            };
+            trace2 = {
+                line: { shape: 'spline' },
+                mode: 'lines+markers',
+                name: ''spline'',
+                type: 'scatter',
+                x: [1, 2, 3, 4, 5],
+                y: [6, 8, 7, 8, 6],
+                text: ['tweak line smoothness<br>with 'smoothing' in line object'],
+                hoverinfo: 'text+name'
+            };
+            trace3 = {
+                line: { shape: 'vhv' },
+                mode: 'lines+markers',
+                name: ''vhv'',
+                type: 'scatter',
+                x: [1, 2, 3, 4, 5],
+                y: [11, 13, 12, 13, 11],
+                hoverinfo: 'name'
+            };
+            trace4 = {
+                line: { shape: 'hvh' },
+                mode: 'lines+markers',
+                name: ''hvh'',
+                type: 'scatter',
+                x: [1, 2, 3, 4, 5],
+                y: [16, 18, 17, 18, 16],
+                hoverinfo: 'name'
+            };
+            trace5 = {
+                line: { shape: 'vh' },
+                mode: 'lines+markers',
+                name: ''vh'',
+                type: 'scatter',
+                x: [1, 2, 3, 4, 5],
+                y: [21, 23, 22, 23, 21],
+                hoverinfo: 'name'
+            };
+            trace6 = {
+                line: { shape: 'hv' },
+                mode: 'lines+markers',
+                name: ''hv'',
+                type: 'scatter',
+                x: [1, 2, 3, 4, 5],
+                y: [26, 28, 27, 28, 26],
+                hoverinfo: 'name'
+            };
+            data = [trace1, trace2, trace3, trace4, trace5, trace6];
+            layout = {
+                legend: {
+                    y: 0.5,
+                    font: { size: 16 },
+                    traceorder: 'reversed'
                 }
-            ];
+            };
+            Plotly.plot(this._root, {
+                data: data,
+                layout: layout
+            }
 
-            const myChart = Plotly.newPlot(this._root, data, {
-                title: "Test"
-              });
-              */
-            myChart.setOption(option);
+            
         }
     }
     customElements.define("com-sap-sample-template", LinePlotlyDemo);
