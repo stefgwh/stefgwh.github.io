@@ -122,7 +122,7 @@ var getScriptPromisify = (src) => {
             myChart.setOption(option);
             */
 
-            trace1 = {
+            const trace1 = {
                 line: { shape: 'linear' },
                 mode: 'lines+markers',
                 name: ''linear'',
@@ -131,7 +131,7 @@ var getScriptPromisify = (src) => {
                 y: [1, 3, 2, 3, 1],
                 hoverinfo: 'name'
             };
-            trace2 = {
+            const trace2 = {
                 line: { shape: 'spline' },
                 mode: 'lines+markers',
                 name: ''spline'',
@@ -141,7 +141,7 @@ var getScriptPromisify = (src) => {
                 text: ['tweak line smoothness<br>with 'smoothing' in line object'],
                 hoverinfo: 'text+name'
             };
-            trace3 = {
+            const trace3 = {
                 line: { shape: 'vhv' },
                 mode: 'lines+markers',
                 name: ''vhv'',
@@ -150,7 +150,7 @@ var getScriptPromisify = (src) => {
                 y: [11, 13, 12, 13, 11],
                 hoverinfo: 'name'
             };
-            trace4 = {
+            const trace4 = {
                 line: { shape: 'hvh' },
                 mode: 'lines+markers',
                 name: ''hvh'',
@@ -159,7 +159,7 @@ var getScriptPromisify = (src) => {
                 y: [16, 18, 17, 18, 16],
                 hoverinfo: 'name'
             };
-            trace5 = {
+            const trace5 = {
                 line: { shape: 'vh' },
                 mode: 'lines+markers',
                 name: ''vh'',
@@ -168,7 +168,7 @@ var getScriptPromisify = (src) => {
                 y: [21, 23, 22, 23, 21],
                 hoverinfo: 'name'
             };
-            trace6 = {
+            const trace6 = {
                 line: { shape: 'hv' },
                 mode: 'lines+markers',
                 name: ''hv'',
@@ -177,8 +177,8 @@ var getScriptPromisify = (src) => {
                 y: [26, 28, 27, 28, 26],
                 hoverinfo: 'name'
             };
-            data = [trace1, trace2, trace3, trace4, trace5, trace6];
-            layout = {
+            const data = [trace1, trace2, trace3, trace4, trace5, trace6];
+            const layout = {
                 legend: {
                     y: 0.5,
                     font: { size: 16 },
