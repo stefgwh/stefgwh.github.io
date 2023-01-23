@@ -309,9 +309,11 @@ var getScriptPromisify = (src) => {
         // Commented out by default.  If it is enabled, SAP Analytics Cloud will track DOM size changes and call this callback as needed
         //  If you don't need to react to resizes, you can save CPU by leaving it uncommented.
 
+        /*
         onCustomWidgetResize(width, height) {
             this.render();
         }
+        */
 
 
         async render() {
@@ -319,53 +321,19 @@ var getScriptPromisify = (src) => {
             await getScriptPromisify(
                 "https://cdn.plot.ly/plotly-latest.min.js"
             );
-            
 
-            /*
-            await getScriptPromisify(
-                "https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"
-            );
-
-            const myChart = echarts.init(this._root, "wight");
-            const option = {
-                legend: {
-                    orient: 'vertical',
-                    x: 'left',
-                    data: ['A', 'B', 'C', 'D', 'E']
-                },
-                series: [
-                    {
-                        type: 'pie',
-                        radius: ['50%', '70%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                            show: false,
-                            position: 'center'
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                        emphasis: {
-                            label: {
-                                show: true,
-                                fontSize: '30',
-                                fontWeight: 'bold'
-                            }
-                        },
-                        data: [
-                            { value: 335, name: 'A' },
-                            { value: 310, name: 'B' },
-                            { value: 234, name: 'C' },
-                            { value: 135, name: 'D' },
-                            { value: 1548, name: 'E' }
-                        ]
-                    }
-                ]
-            };
-
- 
-            myChart.setOption(option);
-            */
+            if (!this._myDataSource || this._myDataSource.state !== "success") {
+                return;
+              }
+        
+              const dimension = this._myDataSource.metadata.feeds.dimensions.values[0];
+              const measure = this._myDataSource.metadata.feeds.measures.values[0];
+              const data = this._myDataSource.data.map((data) => {
+                return {
+                  name: data[dimension].label,
+                  value: data[measure].raw,
+                };
+              });
 
             const trace1 = {
                 line: { shape: 'linear' },
@@ -376,53 +344,8 @@ var getScriptPromisify = (src) => {
                 y: [1, 3, 2, 3, 1],
                 hoverinfo: 'name'
             };
-            const trace2 = {
-                line: { shape: 'spline' },
-                mode: 'lines+markers',
-                name: "spline",
-                type: 'scatter',
-                x: [1, 2, 3, 4, 5],
-                y: [6, 8, 7, 8, 6],
-                text: ['tweak line smoothness<br>with in line object'],
-                hoverinfo: 'text+name'
-            };
-            const trace3 = {
-                line: { shape: 'vhv' },
-                mode: 'lines+markers',
-                name: "vhv",
-                type: 'scatter',
-                x: [1, 2, 3, 4, 5],
-                y: [11, 13, 12, 13, 11],
-                hoverinfo: 'name'
-            };
-            const trace4 = {
-                line: { shape: 'hvh' },
-                mode: 'lines+markers',
-                name: "hvh",
-                type: 'scatter',
-                x: [1, 2, 3, 4, 5],
-                y: [16, 18, 17, 18, 16],
-                hoverinfo: 'name'
-            };
-            const trace5 = {
-                line: { shape: 'vh' },
-                mode: 'lines+markers',
-                name: "vh",
-                type: 'scatter',
-                x: [1, 2, 3, 4, 5],
-                y: [21, 23, 22, 23, 21],
-                hoverinfo: 'name'
-            };
-            const trace6 = {
-                line: { shape: 'hv' },
-                mode: 'lines+markers',
-                name: "hv",
-                type: 'scatter',
-                x: [1, 2, 3, 4, 5],
-                y: [26, 28, 27, 28, 26],
-                hoverinfo: 'name'
-            };
-            const data = [trace1, trace2, trace3, trace4, trace5, trace6];
+ 
+            //const data = [trace1, trace2, trace3, trace4, trace5, trace6];
             const layout = {
                 legend: {
                     y: 0.5,
